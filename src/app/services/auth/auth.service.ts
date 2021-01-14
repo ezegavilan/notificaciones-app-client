@@ -35,6 +35,12 @@ export class AuthService {
     );
   }
 
+  logout(): void {
+    sessionStorage.clear();
+    this.loggedIn.emit(false);
+    this.username.emit("");
+  }
+
   getJwt(): string {
     return sessionStorage.getItem('authToken');
   }

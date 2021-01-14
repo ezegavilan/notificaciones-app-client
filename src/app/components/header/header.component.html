@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">Navbar</a>
+        <a class="navbar-brand">Notis APP</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -11,9 +11,15 @@
                 </li>
             </ul>
             <div class="d-flex">
-                <div [routerLink]="['profile/my-posts']" *ngIf="isLoggedIn" ngbDropdown class="float-right pointer">
-                    {{username}}
-                    <img class="account-icon" src="https://www.redditstatic.com/avatars/avatar_default_08_D4E815.png">
+                <div *ngIf="isLoggedIn" ngbDropdown class="float-right pointer">
+                    <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                        <button (click)="goToUserProfile()" ngbDropdownItem>Mis Posteos</button>
+                        <button (click)="logout()" ngbDropdownItem>Cerrar sesión</button>
+                    </div>
+                    <button class="userdetails" id="dropdownBasic1" ngbDropdownToggle>
+                        <img class="account-icon" src="https://www.redditstatic.com/avatars/avatar_default_08_D4E815.png">
+                        {{username}}
+                    </button>
                 </div>
                 <div *ngIf="!isLoggedIn">
                     <a [routerLink]="['login']" class="float-right login mr-2">Iniciar Sesión</a>

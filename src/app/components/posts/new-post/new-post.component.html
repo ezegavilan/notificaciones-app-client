@@ -1,0 +1,30 @@
+<div class="m-3 card bg-light">
+    <div class="card-header text-center">
+        <h5>NUEVO POST</h5>
+    </div>
+    <div class="card-body">
+        <form [formGroup]="postForm" (ngSubmit)="nuevoPost()">
+            <div class="form-group row">
+                <label for="nombrePost" class="col-form-label col-sm-2">Nombre del Post</label>
+                <div class="col-sm-4 my-2">
+                    <input [class.is-invalid]="nombrePostInvalid" type="text" class="form-control" name="nombrePost" formControlName="nombrePost">
+                </div>
+                <span *ngIf="nombrePostInvalid" class="text-danger"><small>Ingrese nombre del post</small></span>
+            </div>
+
+            <div class="form-group row">
+                <label for="descripcion" class="col-form-label col-sm-2">Descripción</label>
+                <div class="col-sm-4 my-2">
+                    <input [class.is-invalid]="descripcionInvalid" type="" class="form-control" name="descripcion" formControlName="descripcion">
+                </div>
+                <span *ngIf="descripcionInvalid" class="text-danger"><small>Ingrese descripción</small></span>
+            </div>
+
+            <div class="form-group row my-3 text-center">
+                <div class="col-sm-6">
+                    <button [disabled]="!postForm.valid" class="btn btn-primary" type="submit">Crear</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
