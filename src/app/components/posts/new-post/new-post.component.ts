@@ -49,6 +49,7 @@ export class NewPostComponent implements OnInit {
     this.postService.createPost(newPost).subscribe(response => {
       console.log(response.username);
       this.toastr.success(`¡Post ${response.nombrePost} creado con éxito!`);
+      this.router.navigate(['profile/my-posts']);
     }, err => {
       console.log(err);
       this.toastr.error(err.error.error);
