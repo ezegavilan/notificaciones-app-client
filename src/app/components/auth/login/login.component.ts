@@ -21,6 +21,9 @@ export class LoginComponent implements OnInit {
               private toastr: ToastrService) { }
 
   ngOnInit(): void {
+    if (this.authService.isLoggedIn()) {
+      this.router.navigate(['home']);
+    }
     this.crearForm();
   }
 
@@ -43,10 +46,8 @@ export class LoginComponent implements OnInit {
     }
 
     this.authService.login(loginRequest).subscribe(response => {
-      this.isError = false;
-      console.log(response);
-      this.toastr.success(`¡Bienvenido ${response.username}!`)
       this.router.navigate(['/home']);
+      window.location.reload();
     }, err => {
       this.isError = true;
       console.log(err);

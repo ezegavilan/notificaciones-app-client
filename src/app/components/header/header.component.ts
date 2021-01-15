@@ -36,7 +36,7 @@ export class HeaderComponent implements OnInit, AfterViewInit {
   }
 
   inicNotis(): void {
-    if (!this.authService.isLoggedIn()) {
+    if (!this.isLoggedIn) {
       return ;
     }
     let notificationsInboxHtmlElement = this.notificationsInbox?.nativeElement as HTMLElement;
