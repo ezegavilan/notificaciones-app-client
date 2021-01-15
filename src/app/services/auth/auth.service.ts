@@ -13,6 +13,7 @@ export class AuthService {
   urlEndpoint: string;
   @Output() loggedIn: EventEmitter<boolean> = new EventEmitter();
   @Output() username: EventEmitter<string> = new EventEmitter();
+  @Output() userEmail: EventEmitter<string> = new EventEmitter();
 
   constructor(private http: HttpClient) {
     this.urlEndpoint = 'http://localhost:8080/api/auth'
@@ -29,6 +30,7 @@ export class AuthService {
 
         this.loggedIn.emit(true);
         this.username.emit(response.authResponse.username);
+        this.userEmail.emit(response.authResponse.email);
 
         return response.authResponse as AuthResponse;
       })
@@ -38,7 +40,8 @@ export class AuthService {
   logout(): void {
     sessionStorage.clear();
     this.loggedIn.emit(false);
-    this.username.emit("");
+    this.username.emit(null);
+    this.userEmail.emit(null);
   }
 
   getJwt(): string {

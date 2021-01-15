@@ -9,6 +9,9 @@
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" [routerLink]="['home']">Home</a>
                 </li>
+                <li>
+                    <div *ngIf="isLoggedIn" class="nav-link" #notificationsInbox></div>
+                </li>
             </ul>
             <div class="d-flex">
                 <div *ngIf="isLoggedIn" ngbDropdown class="float-right pointer">
