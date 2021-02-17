@@ -12,7 +12,7 @@ export class PostService {
   urlEndpoint: string;
 
   constructor(private http: HttpClient) {
-    this.urlEndpoint = 'http://http://notis.api.deofisdev.online/api';
+    this.urlEndpoint = 'http://localhost:8080/api';
   }
 
   createPost(post: Post): Observable<Post> {

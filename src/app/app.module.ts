@@ -15,6 +15,7 @@ import { UserPostsComponent } from './components/posts/user-posts/user-posts.com
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NewPostComponent } from './components/posts/new-post/new-post.component';
 import { TokenInterceptor } from './token.interceptor';
+import { MercadoPagoRedirectComponent } from './components/mercado-pago/mercado-pago-redirect/mercado-pago-redirect.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { TokenInterceptor } from './token.interceptor';
     LoginComponent,
     HeaderComponent,
     UserPostsComponent,
-    NewPostComponent
+    NewPostComponent,
+    MercadoPagoRedirectComponent
   ],
   imports: [
     BrowserModule,
